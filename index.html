@@ -29,12 +29,36 @@
 </head>
 <body class="slides chain simplifiedMobile animated">
 <style>
-figure {
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slider-container {
+  width: 400px; 
+  height: 100px;
+  overflow: hidden;
+  border: 0px solid #ccc; 
+  border-radius: 0px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out; 
+}
+
+.logo {
   display: inline-block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 59px;
+  opacity: 0.3; /* Initial opacity */
+}
+
+.logo.active {
+  opacity: 1; /* Active logo opacity */
 }
 </style>		
 <!-- SVG Library -->
@@ -125,13 +149,15 @@ figure {
     <div class="container">
       <div class="wrap">
         <div class="fix-7-12" align="top">
-			<h1 class="ae-1"><b><br> Welcome <br> To <br> Employee Appreciation Day 2025</b> <br><br><br><br></h1>
-			<div class="clientlogos" display:flex>
-				<figure><img src="assets/img/clarioicon.png" width="210px" height="70px"></figure>
-				<figure><img src="assets/img/medableicon.png" width="200px" height="70px"></figure>
-				<figure><img src="assets/img/science37.png" width="200px" height="70px"></figure>
-				<figure><img src="assets/img/fapticicon.png" width="200px" height="70px"></figure>
-				<figure><img src="assets/img/umotificon.png" width="200px" height="70px"></figure>
+			<h1 class="ae-1"><b><br> Welcome <br> To <br> Employee Appreciation Day <br><br>2025</b> <br><br><br><br></h1>
+			<div class="slider-container">
+			<div class="slider-track">
+				<img src="assets/img/clarioicon.png" width="340px" height="90px" class="logo">
+				<img src="assets/img/medableicon.png" width="350px" height="90px" class="logo">
+				<img src="assets/img/science37.png" width="330px" height="90px" class="logo">
+				<img src="assets/img/fapticicon.png" width="340px" height="90px" class="logo">
+				<img src="assets/img/umotificon.png" width="350px" height="90px" class="logo">
+				</div>
 			</div>
         </div>  
       </div>
@@ -141,7 +167,26 @@ figure {
 </section>
 <!-- Loading Progress Bar -->
 <div class="progress-bar blue"></div>
-		
+<script>
+const sliderTrack = document.querySelector('.slider-track');
+let currentIndex = 0;
+const slideWidth = document.querySelector('.logo').offsetWidth; 
+const logos = document.querySelectorAll('.logo');
+
+function highlightLogo() {
+  logos.forEach(logo => logo.classList.remove('active')); 
+  logos[currentIndex].classList.add('active'); 
+}
+
+function slide() {
+  sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`; 
+  highlightLogo(); 
+  currentIndex = (currentIndex + 1) % logos.length; 
+}
+
+setInterval(slide, 3000); 
+
+</script>
 </body>
 
 </html>
