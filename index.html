@@ -29,17 +29,50 @@
 </head>
 <body class="slides chain simplifiedMobile animated">
 <style>
-figure {
-  display: inline-block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 20px;
-  margin-right: 20px;
+.clientlogos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 35px; /* Adjust spacing */
+  padding: 20px;
 }
-container .ae-1{
-	margin-right: 20px;
+
+.clientlogos img {
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
 }
-</style>		
+
+/* Tablet View */
+@media screen and (max-width: 1024px) {
+  .clientlogos img {
+    max-width: 200px;
+  }
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+  .clientlogos {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .clientlogos img {
+    max-width: 150px;
+  }
+}
+
+/* Small Mobile View */
+@media screen and (max-width: 480px) {
+  .clientlogos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .clientlogos img {
+    max-width: 120px;
+  }
+}
+</style>	
 <!-- SVG Library -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   
@@ -128,7 +161,7 @@ container .ae-1{
     <div class="container">
       <div class="wrap">
         <div class="fix-7-12">
-			<h1 class="ae-1"><b><br> Welcome <br> To <br> Employee Appreciation Day <br><br>2025</b> <br><br><br><br></h1>
+			<h1 class="ae-1"><b><br> Welcome <br> To <br> Employee Appreciation Day <br>2025</b> <br><br></h1>
 			<div class="clientlogos" display:flex>
 				<figure><img src="assets/img/clarioicon.png" width="210px" height="70px"></figure>
 				<figure><img src="assets/img/medableicon.png" width="200px" height="70px"></figure>
